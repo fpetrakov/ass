@@ -1,14 +1,7 @@
 .intel_syntax noprefix
 .global _start
 _start:
-mov BYTE PTR [rsp+16], '/'
-mov BYTE PTR [rsp+17], 'f'
-mov BYTE PTR [rsp+18], 'l'
-mov BYTE PTR [rsp+19], 'a'
-mov BYTE PTR [rsp+20], 'g'
-mov BYTE PTR [rsp+21], 0
-
-lea rdi, [rsp+16]
+lea rdi, [rip+path]
 mov rsi, 0
 mov rax, 2
 syscall
@@ -28,3 +21,6 @@ syscall
 mov rdi, 42
 mov rax, 60
 syscall
+
+path:
+	.asciz "/flag"
