@@ -9,7 +9,7 @@ syscall
 
 mov rdi, 1
 mov rsi, rsp
-mov rdx, 128
+mov rdx, rax
 mov rax, 1
 syscall
 
