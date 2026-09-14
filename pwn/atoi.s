@@ -47,6 +47,6 @@ atoi:
 .done:
     pop rax
     pop rbx
-	cmp esi, 1
-	je .negate
+    cmp esi, 1
+    je .negate
     ret
