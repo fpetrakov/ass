@@ -36,12 +36,12 @@ atoi:
     jmp .loop
 
 .is_negative:
-	inc rbx	
-	mov esi, 1	
+	inc rbx
+	mov esi, 1
 	jmp .loop
 
 .negate:
-	neg rax	
+	neg rax
 	ret
 
 .done:
