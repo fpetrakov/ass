@@ -19,6 +19,9 @@ atoi:
     test al, al
     jz .done
 
+	cmp byte ptr [rbx], '-'
+	je .is_negative
+
     push rbx
     mov rdi, rbx
     call atoi_digit
@@ -32,7 +35,18 @@ atoi:
     inc rbx
     jmp .loop
 
+.is_negative:
+	inc rbx	
+	mov esi, 1	
+	jmp .loop
+
+.negate:
+	neg rax	
+	ret
+
 .done:
     pop rax
     pop rbx
+	cmp esi, 1
+	je .negate
     ret
