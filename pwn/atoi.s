@@ -12,6 +12,7 @@ atoi:
     push rbx
     mov rbx, rdi
     xor r11, r11
+    xor esi, esi
     push r11
 
 .loop:
@@ -21,6 +22,11 @@ atoi:
 
 	cmp byte ptr [rbx], '-'
 	je .is_negative
+
+	mov r10b, byte ptr [rbx]
+	sub r10b, 0x30
+	cmp r10b, 9
+	ja .done
 
     push rbx
     mov rdi, rbx
