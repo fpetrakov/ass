@@ -1,6 +1,7 @@
 TIME equ 40
 
 section .text
+default rel
 global expected_minutes_in_oven
 expected_minutes_in_oven:
 	mov rax, TIME
