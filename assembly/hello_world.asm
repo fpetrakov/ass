@@ -13,6 +13,6 @@ _start:
 	mov rdx, len
 	syscall
 
-	xor rdi, rdi 
+	xor rdi, rdi
 	mov rax, 60
 	syscall

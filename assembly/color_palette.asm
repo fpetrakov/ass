@@ -13,7 +13,7 @@ BLUE dd 0x0000FF00
 
 extern combining_function
 
-section .text 
+section .text
 default rel
 
 global get_color_value
@@ -24,7 +24,7 @@ get_color_value:
 global add_base_color
 add_base_color:
     mov eax, dword [rdi]
-	mov dword [base_color], eax	
+	mov dword [base_color], eax
     ret
 
 global make_color_combination
