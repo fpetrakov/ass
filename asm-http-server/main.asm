@@ -41,6 +41,7 @@ mov rsi, 0
 mov rax, sys_listen
 syscall
 
+.loop: 
 mov rdi, r12
 xor rsi, rsi
 xor rdx, rdx
@@ -109,6 +110,7 @@ syscall
 mov rdi, r13
 mov rax, sys_close
 syscall
+jmp .loop
 
 mov rdi, exit_success 
 mov rax, sys_exit
