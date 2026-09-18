@@ -3,7 +3,7 @@ section .data
     current_counts db 0, 0, 0, 0, 0, 0, 0, 0
 
 section .bss
-    current_week_days resb 1   
+    current_week_days resb 1
 
 section .text
 default rel
