@@ -7,7 +7,7 @@ int main(int args, char *argv[]) {
     char buf[256];
     if (args == 1) {
         ssize_t n;
-        while ((n = read(STDIN_FILENO, buf, sizeof buf))) {
+        while ((n = read(STDIN_FILENO, buf, sizeof buf)) > 0) {
             write(STDOUT_FILENO, buf, n);
         }
         if (n == -1) perror("read");
@@ -32,7 +32,7 @@ int main(int args, char *argv[]) {
         }
 
         ssize_t n;
-        while ((n = read(fd, buf, sizeof buf))) {
+        while ((n = read(fd, buf, sizeof buf))> 0) {
             write(STDOUT_FILENO, buf, n);
         }
         if (n == -1) perror("read");
