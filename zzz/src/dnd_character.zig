@@ -27,14 +27,15 @@ pub const Character = struct {
     hitpoints: u8,
 
     pub fn init(random: std.Random) Character {
-        var character: Character = undefined;
-        inline for (std.meta.fields(Character)) |field| {
-            if (comptime std.mem.eql(u8, field.name, "hitpoints")) {
-                character.hitpoints = @intCast(10 + modifier(character.constitution));
-                continue;
-            }
-            @field(character, field.name) = ability(random);
-        }
-        return character;
+        const constitution = ability(random);
+        return Character{
+            .constitution = constitution,
+            .hitpoints = @intCast(10 + modifier(constitution)),
+            .strength = ability(random),
+            .dexterity = ability(random),
+            .intelligence = ability(random),
+            .wisdom = ability(random),
+            .charisma = ability(random),
+        };
     }
 };
