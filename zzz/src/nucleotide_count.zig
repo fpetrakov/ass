@@ -15,9 +15,7 @@ pub fn countNucleotides(s: []const u8) NucleotideError!Counts {
             'C' => counts.c += 1,
             'G' => counts.g += 1,
             'T' => counts.t += 1,
-            else => {
-                return NucleotideError.Invalid;
-            },
+            else => return NucleotideError.Invalid,
         }
     }
     return counts;
