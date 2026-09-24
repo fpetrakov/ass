@@ -1,3 +1,5 @@
+const std = @import("std");
+
 pub fn LinkedList(comptime T: type) type {
     return struct {
         pub const Node = struct {
@@ -63,9 +65,8 @@ pub fn LinkedList(comptime T: type) type {
 
         pub fn delete(self: *@This(), node: *Node) void {
             var first = self.first;
-            while (first) |curr| {
+            while (first) |curr| : (first = curr.next) {
                 if (curr == node) break;
-                first = curr.next;
             }
             if (first == null) return;
 
