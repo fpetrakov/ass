@@ -1,18 +1,10 @@
-section .data
-    msg db "Hello, World!", 10
-    len equ $ - msg
+default rel
+
+section .robata
+msg: db "Hello, World!", 0
 
 section .text
-    default rel
-    global _start
-
-_start:
-    mov rax, 1
-    mov rdi, 1
-    lea rsi, [msg]
-    mov rdx, len
-    syscall
-
-    xor rdi, rdi
-    mov rax, 60
-    syscall
+global hello
+hello:
+    lea rax, [msg]
+    ret
